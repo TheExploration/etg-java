@@ -73,6 +73,11 @@ public class TestGame {
 
     @Test
     void testUpdate() {
-        game.update();
+        for (int i = 0; i < 190; i++) {
+            game.update();
+            
+        }
+        
+        assertFalse(Game.getGameObjects().isEmpty());
     }
 }

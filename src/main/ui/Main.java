@@ -1,7 +1,9 @@
 package ui;
 
+import model.Enemy;
 import model.Game;
 import model.GameObject;
+import model.Player;
 
 // Represents the Main ui in the game. (In PHASE 1 so far it is the console UI)
 public class Main implements Runnable {
@@ -12,7 +14,7 @@ public class Main implements Runnable {
     // Game running status
     private boolean running = false;
     // Game constants: Frames per second, width of game, and height of game
-    public static final long SLEEP_TIME = 1000000000L / 30L;
+    public static final long SLEEP_TIME = 1000000000L / 30L; // 30 FPS
     public static final int GAME_WIDTH = 15;
     public static final int GAME_HEIGHT = 15;
 
@@ -26,7 +28,8 @@ public class Main implements Runnable {
 
     // Starts the game
     // Modifies: this
-    // Effects: If game is not running, make running true and start the mainThread by making a new thread (create new thread and call run())
+    // Effects: If game is not running, 
+    // make running true and start the mainThread by making a new thread (create new thread and call run())
     public void startGame() {
         if (!running) {
             running = true;
@@ -71,8 +74,19 @@ public class Main implements Runnable {
 
     }
 
+    // Print the GameObject
+    // Requires: obj is not null
+    // Effects: Prints the String which represents each GameObject
+    public void printObj(GameObject obj) {
+        if (obj instanceof Player) {
+            System.out.print("O");
+        } else if (obj instanceof Enemy) {
+            System.out.print("X");
+        }
+    }
+
     // Render the console UI
-    // Effects: Prints the UI out into console with System.out.println
+    // Effects: Prints the game UI out into console with System.out.println
     public void render() {
         for (int i = 0; i < 10; i++) {
             System.out.println();
@@ -82,7 +96,7 @@ public class Main implements Runnable {
                 boolean objAtTile = false;
                 for (GameObject g : Game.getGameObjects()) {
                     if (g.getX() == c && g.getY() == r) {
-                        System.out.print("O");
+                        printObj(g);
                         objAtTile = true;
                         break;
                     }

@@ -19,6 +19,9 @@ public class Game extends JFrame implements KeyListener {
     // Reference to the Player GameObject since there is only 1 player per game.
     private Player player;
 
+    // Counter for spawning enemies
+    private int spawnCounter = 0;
+
     // Construct a Game. Instantiate the player. And accept keyboard input for the console UI
     // Effects: Creates a Game with a single player object. Creates an invisible GUI to accept keyboard input.
     public Game() {
@@ -87,11 +90,19 @@ public class Game extends JFrame implements KeyListener {
     }
 
     // Update method for the game loop
-    // Modifies: Game.gameObjects
-    // Effects: Calls update() for each GameObject in the list gameObjects
+    // Modifies: this, Game.gameObjects
+    // Effects: Calls update() for each GameObject in the list gameObjects, Spawns enemies
     public void update() {
         for (GameObject g : gameObjects) {
             g.update();
+        }
+        spawnCounter++;
+        if (spawnCounter == 180) {
+            spawnCounter = 0;
+            Random random = new Random();
+            int spawnX = random.nextInt(Main.GAME_WIDTH);
+            int spawnY = random.nextInt(Main.GAME_HEIGHT);
+            new Enemy(spawnX, spawnY, player);
         }
     }
 }
