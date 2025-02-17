@@ -11,7 +11,7 @@ public class GameObject {
     public GameObject(int x, int y) {
         this.x1 = x;
         this.y1 = y;
-        Game.addGameObjects(this);
+        Game.addGameObject(this);
     }
 
     // Get x coordinate
