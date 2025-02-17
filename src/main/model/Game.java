@@ -9,9 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Game extends JFrame implements KeyListener {
-    public static List<GameObject> GAMEOBJECTS = new ArrayList<>();
-    public static int GAME_WIDTH = Main.GAME_WIDTH;
-    public static int GAME_HEIGHT = Main.GAME_HEIGHT;
+    private static List<GameObject> gameObjects = new ArrayList<>();
     private boolean[] keys = new boolean[256];
     private Player player;
 
@@ -27,6 +25,14 @@ public class Game extends JFrame implements KeyListener {
         requestFocusInWindow();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+
+    public static List<GameObject> getGameObjects() {
+        return gameObjects;
+    }
+
+    public static void addGameObjects(GameObject g) {
+        gameObjects.add(g);
     }
 
     @Override
@@ -55,7 +61,7 @@ public class Game extends JFrame implements KeyListener {
     }
 
     public void update() {
-        for (GameObject g : GAMEOBJECTS) {
+        for (GameObject g : gameObjects) {
             g.update();
         }
     }

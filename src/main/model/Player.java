@@ -1,15 +1,18 @@
 package model;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import ui.Main;
 
 public class Player extends GameObject {
 
+    private String facing = "up";
 
     public Player() {
-        super(2, 2, "right");
+        super(2, 2);
+        facing = "right";
+    }
+
+    public String getFacing() {
+        return facing;
     }
 
 
@@ -60,8 +63,8 @@ public class Player extends GameObject {
                 break;
 
         }
-        x1 = clamp(x1, 0, Main.GAME_WIDTH-1);
-        y1 = clamp(y1, 0, Main.GAME_HEIGHT-1);
+        x1 = clamp(x1, 0, Main.GAME_WIDTH - 1);
+        y1 = clamp(y1, 0, Main.GAME_HEIGHT - 1);
 
         
     }

@@ -8,8 +8,8 @@ public class Main implements Runnable {
     private Thread mainThread;  
     private boolean running = false;
     public static final long SLEEP_TIME = 1000000000L / 30L;
-    public static int GAME_WIDTH = 15;
-    public static int GAME_HEIGHT = 15;
+    public static final int GAME_WIDTH = 15;
+    public static final int GAME_HEIGHT = 15;
 
 
 
