@@ -7,7 +7,8 @@ public class GameObject {
     protected int y1;
 
     // Construct a GameObject
-    // Effects: Creates a GameObject this updated with x and y coordinates. Adds this to the static list gameObjects in the Game class
+    // Effects: Creates a GameObject this updated with x and y coordinates. 
+    // Adds this to the static list gameObjects in the Game class
     public GameObject(int x, int y) {
         this.x1 = x;
         this.y1 = y;

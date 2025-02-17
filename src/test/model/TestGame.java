@@ -37,29 +37,32 @@ public class TestGame {
         Game.addGameObject(testObject);
         List<GameObject> single = Game.getGameObjects();
         assertEquals(testObject, single.get(single.size() - 1));
-        assertTrue(!Game.getGameObjects().isEmpty());
+        assertFalse(Game.getGameObjects().isEmpty());
 
     }
 
     @Test
     void testKeyPressed() {
-        game.keyPressed(new KeyEvent(new JTextField(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
+        game.keyPressed(new KeyEvent(new JTextField(), 0, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
         boolean[] keys = game.getKeys();
         assertTrue(keys[KeyEvent.VK_A]);
     }
 
     @Test
     void testKeyReleased() {
-        game.keyPressed(new KeyEvent(new JTextField(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
+        game.keyPressed(new KeyEvent(new JTextField(), 0, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
         boolean[] keys = game.getKeys();
         assertTrue(keys[KeyEvent.VK_A]);
-        game.keyReleased(new KeyEvent(new JTextField(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
+        game.keyReleased(new KeyEvent(new JTextField(), 0, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
         assertFalse(keys[KeyEvent.VK_A]);
     }
  
     @Test
     void testGetKeys() {
-        assertTrue(game.getKeys() != null);
+        game.keyPressed(new KeyEvent(new JTextField(), 0, System.currentTimeMillis(), 0, KeyEvent.VK_A, 'a'));
+        boolean[] keys = game.getKeys();
+        assertTrue(keys[KeyEvent.VK_A]);
+
     }
 
     // Method is not used. It is only required for implementing interface

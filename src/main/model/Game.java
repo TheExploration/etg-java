@@ -87,7 +87,8 @@ public class Game extends JFrame implements KeyListener {
     }
 
     // Update method for the game loop
-    // Effects: Calls the update method for each GameObject in the list gameObjects
+    // Modifies: Game.gameObjects
+    // Effects: Calls update() for each GameObject in the list gameObjects
     public void update() {
         for (GameObject g : gameObjects) {
             g.update();
