@@ -21,7 +21,7 @@ public class Enemy extends GameObject {
 
     // Move enemy
     // Modifies: this
-    // Effects: Move enemy by 1 in random direction if player is not there
+    // Effects: Move enemy by 1 in random direction
     public void move() {
         Random random = new Random();
         int moveX = x1 + random.nextInt(3) - 1;

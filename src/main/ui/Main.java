@@ -17,6 +17,8 @@ public class Main implements Runnable {
     public static final long SLEEP_TIME = 1000000000L / 30L; // 30 FPS
     public static final int GAME_WIDTH = 15;
     public static final int GAME_HEIGHT = 15;
+    // Starting time of the game
+    long startTime = System.currentTimeMillis();
 
 
     // Constructs a Main ui object
@@ -107,6 +109,8 @@ public class Main implements Runnable {
             }
             System.out.println();
         }
+        long deltaTime = System.currentTimeMillis() - startTime;
+        System.out.println("Time: " + Integer.toString((int)(deltaTime / 1000)) + " secs");
         
     }
 

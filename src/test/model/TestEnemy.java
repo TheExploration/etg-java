@@ -1,6 +1,8 @@
 package model;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.*;
@@ -28,8 +30,13 @@ public class TestEnemy {
 
     @Test
     void testMove() {
-        enemyTest.move();
-        // No easy method of testing random
+        int oldX = enemyTest.getX();
+        int oldY = enemyTest.getY();
+        for (int i = 0; i < 100; i++) {
+            enemyTest.move();
+        }
+        assertNotEquals(oldX, enemyTest.getX()); // May fail due to random movement
+        assertNotEquals(oldX, enemyTest.getY()); // - 1/15 chance it moves to the same pos
     }
 
     @Test

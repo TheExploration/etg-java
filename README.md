@@ -10,6 +10,7 @@ It will be used by people who are bored and want to play a game or someone who w
 - As a user, I want to be able to shoot a bullet (add a bullet to a projectiles class) 
 - As a user, I want to be able to kill enemies in the game.
 - As a user, I want to be able to view the list of enemies in the game.
+- As a user, I want the game to spawn enemies and add them to the list of enemies over time.
 - As a user, I want to be able to see the time spent in the game.
 - As a user, I want to be able to earn gold by hitting enemies in the game.
 - As a user, I want to be able to see the gold earned in the game.
