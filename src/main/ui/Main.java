@@ -1,6 +1,7 @@
 package ui;
 
 import model.Game;
+import model.GameObject;
 
 // Represents the Main ui in the game. (In PHASE 1 so far it is the console UI)
 public class Main implements Runnable {
@@ -50,7 +51,7 @@ public class Main implements Runnable {
 
     // Creates the game loop using Thread.sleep
     // Modifies: this, game
-    // Effects: While running is true, repeatedly call game.update() and render() every SLEEP_TIME
+    // Effects: While running is true, repeatedly call game.update() and render() every SLEEP_TIME milliseconds
     @Override
     public void run() {
         while (running) {
@@ -73,11 +74,31 @@ public class Main implements Runnable {
     // Render the console UI
     // Effects: Prints the UI out into console with System.out.println
     public void render() {
-
+        for (int i = 0; i < 10; i++) {
+            System.out.println();
+        }
+        for (int r = 0; r < GAME_HEIGHT; r++) {
+            for (int c = 0; c < GAME_WIDTH; c++) {
+                boolean objAtTile = false;
+                for (GameObject g : Game.getGameObjects()) {
+                    if (g.getX() == c && g.getY() == r) {
+                        System.out.print("O");
+                        objAtTile = true;
+                        break;
+                    }
+                }
+                if (!objAtTile) {
+                    System.out.print("-");
+                }
+            }
+            System.out.println();
+        }
         
     }
 
-
+    // Start the program
+    // Modifies: this
+    // Effects: Creates a new Main object and starts the game
     public static void main(String[] args) throws Exception {
         Main main = new Main();
         main.startGame();

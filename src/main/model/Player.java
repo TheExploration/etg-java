@@ -89,7 +89,7 @@ public class Player extends GameObject {
     // Modifies: this (to be implemented)
     // Effects: TBD
     public void update() {
-        System.out.println(Integer.toString(x1) + Integer.toString(y1));
+        
     }
 
 }
